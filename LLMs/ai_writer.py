@@ -1,7 +1,6 @@
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import torch
-import os
-from typing import Dict, List, Any
+
 
 class AIWriter:
     def __init__(self, name = "goggle/flag-t5-base"):
@@ -13,7 +12,8 @@ class AIWriter:
 
     def write(self, content, style = "Formal"):
         prompt = f"""
-                Rewrite the following text in a {style} while while maintaining the original meaning and structure. Spin the content to be made into a publishable book as you improve clarity, flow and engagement.
+                Rewrite the following text in a {style} while while maintaining the original meaning and structure. 
+                Spin the content to be made into a publishable book as you improve clarity, flow and engagement.
                 Orginal test: {content}
                 Rewritten text:
                 """
