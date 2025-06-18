@@ -47,7 +47,7 @@ class ContentProcessor:
 
 
     
-    def process_all_chapters(self, style: str = "formal") -> List[Dict[str, Any]]:
+    def process(self, style: str = "formal") -> List[Dict[str, Any]]:
         results = []
 
         files = sorted([f for f in self.text_dir.glob("chapter*.txt")])

@@ -3,7 +3,7 @@ import torch
 
 
 class AIWriter:
-    def __init__(self, name = "goggle/flag-t5-base"):
+    def __init__(self, name = "google/flan-t5-base"):
         self.name = name
         self.tokenizer = AutoTokenizer.from_pretrained(name)
         self.model = AutoModelForSeq2SeqLM.from_pretrained(name)
@@ -27,8 +27,8 @@ class AIWriter:
         with torch.no_grad():
             outputs = self.model.generate(
                 **inputs,
-                max_length = len(content.split()) * 1.75,
-                min_length = max(50, len(content.split()) // 2),
+                max_length = int(len(content.split()) * 3),
+                min_length = max(50, len(content.split()) // 4),
                 num_beams = 8,
                 do_sample = True,
                 early_stopping = True,
